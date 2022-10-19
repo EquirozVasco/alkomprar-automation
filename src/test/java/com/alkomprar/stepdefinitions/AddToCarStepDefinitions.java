@@ -18,7 +18,7 @@ public class AddToCarStepDefinitions {
     @Cuando("{string} quiere comprar un articulo de las categorias {string}, {string}, {string}  y {string}")
     public void rodolfoQuiereComprarUnCelularComputadorTvYLlanta(String actor, String categoria1, String categoria2, String categoria3, String categoria4) {
         theActorCalled(actor).attemptsTo(
-                Open.url("https://www.alkosto.com/"),
+                Open.url("https://www.alkomprar.com/"),
                 AgregarAlCarrito.elemento(categoria1),
                 AgregarAlCarrito.elemento(categoria2),
                 AgregarAlCarrito.elemento(categoria3),
@@ -36,7 +36,7 @@ public class AddToCarStepDefinitions {
     @Cuando("{string} quiere comprar un {string}")
     public void rodolfoQuiereComprarUnIphone(String actor, String item) {
         theActorCalled(actor).attemptsTo(
-                Open.url("https://www.alkosto.com/"),
+                Open.url("https://www.alkomprar.com/"),
                 BuscarYAgregarCarrito.elemento(item)
         );
     }

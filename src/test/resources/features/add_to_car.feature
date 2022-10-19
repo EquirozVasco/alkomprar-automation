@@ -8,6 +8,6 @@ Característica: Add to car
     Cuando "Rodolfo" quiere comprar un articulo de las categorias "Celulares", "Computadores", "TV"  y "Llantas"
     Entonces debe ver 4 articulos en el carrito
 
-  Escenario: Comprar un Iphone 13
-    Cuando "Rodolfo" quiere comprar un "iPhone 13"
-    Entonces debe ver en el carrito de comprar "iPhone 13"
+  Escenario: Comprar un Iphone 11
+    Cuando "Rodolfo" quiere comprar un "iPhone 11"
+    Entonces debe ver en el carrito de comprar "iPhone 11"
