@@ -38,16 +38,6 @@ public class ConsultarEstadoPedido implements Task {
                 Click.on(BUSQUEDA_POR_FACTURA),
                 Type.theValue(factura).into(TXT_INGRESAR_NUMERO_FACTURA),
                 Click.on(BUT_BUSCAR_FACTURA)
-
-/*                //Desde acá pastel
-                MoveMouse.to(CATEGORIA.of(categoria)),
-                WaitUntil.the(PRIMER_SUB_CATEGORIA.of(categoria), isVisible()),
-                Click.on(PRIMER_SUB_CATEGORIA.of(categoria)),
-                Scroll.to(DIV_PRIMER_ELEMENTO).andAlignToTop(),
-                WaitUntil.the(AGREGAR_ELEMENTO_CARRITO, isClickable()),
-                Click.on(AGREGAR_ELEMENTO_CARRITO),
-                WaitUntil.the(CERRAR_MODAL, isClickable()),
-                Click.on(CERRAR_MODAL)*/
         );
     }
 }

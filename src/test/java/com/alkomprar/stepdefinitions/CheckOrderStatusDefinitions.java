@@ -21,8 +21,13 @@ public class CheckOrderStatusDefinitions {
 
     @Entonces("debe buscar el estado por factura {string}")
     public void debeBuscarElEstadoPorFactura(String string) {
+        /*
+        Ya que no vamos a realizar una compra para hacer el seguimiento del pedido.
+        Acá comprobamos que el test funcione verificando que el mensaje de que no
+        se encuentra la factura se habilite.
+         */
         theActorInTheSpotlight().attemptsTo(
-                Ensure.that(ALERTA_NEGATIVA).isEnabled()
+                Ensure.that(ALERTA_NEGATIVA).isDisplayed()
         );
     }
 }
