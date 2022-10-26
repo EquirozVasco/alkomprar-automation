@@ -23,7 +23,7 @@ public class FindStoresStepDefinitions {
     @Entonces("debe filtrar las tiendas por {string}")
     public void debeFiltrarLasTiendasPor(String ciudad) {
         theActorInTheSpotlight().attemptsTo(
-                Ensure.that("//div[@id = 'stores']").hasSizeGreaterThan(1)
+                Ensure.that(DATOS_TIENDA.of(ciudad)).isDisplayed()
         );
     }
 
