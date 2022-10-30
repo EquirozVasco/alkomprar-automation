@@ -11,6 +11,8 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 
 import static com.alkomprar.userinterfaces.CarritoPage.ARTICULOS_CARRITO;
 import static com.alkomprar.userinterfaces.MenuPage.CARRITO;
+import static com.alkomprar.userinterfaces.OrderStatusPage.ALERTA_NEGATIVA;
+import static com.alkomprar.userinterfaces.ProductPage.VALIDACION_RECIBIDO;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -41,8 +43,9 @@ public class AddOpinionProductStepDefinitions {
     }
     @Entonces("debe buscar el producto y agregar los datos")
     public void debeBuscarElProductoYAgregarLosDatos() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        theActorInTheSpotlight().attemptsTo(
+                Ensure.that(VALIDACION_RECIBIDO).isDisplayed()
+        );
     }
 
 }
