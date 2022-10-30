@@ -5,17 +5,19 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.actions.type.Type;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 
 import static com.alkomprar.userinterfaces.ConfirmacionCarritoPage.CERRAR_MODAL;
 import static com.alkomprar.userinterfaces.DetalleArticuloPage.*;
 import static com.alkomprar.userinterfaces.MenuPage.TXT_BUSCAR;
+import static com.alkomprar.userinterfaces.ProductPage.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class AgregarComentario implements Task {
-    private String actor;
+    private String nombre;
     private String producto;
     private String estrellas;
     private String frase;
@@ -24,7 +26,7 @@ public class AgregarComentario implements Task {
     private String correo;
 
     public AgregarComentario(
-            String actor,
+            String nombre,
             String producto,
             String estrellas,
             String frase,
@@ -32,7 +34,7 @@ public class AgregarComentario implements Task {
             String recomendar,
             String correo
     ) {
-        this.actor = actor;
+        this.nombre = nombre;
         this.producto = producto;
         this.estrellas = estrellas;
         this.frase = frase;
@@ -42,7 +44,7 @@ public class AgregarComentario implements Task {
     }
 
     public static Performable comentario(
-            String actor,
+            String nombre,
             String producto,
             String estrellas,
             String frase,
@@ -52,7 +54,7 @@ public class AgregarComentario implements Task {
     ) {
         return instrumented(
                 AgregarComentario.class,
-                actor,
+                nombre,
                 producto,
                 estrellas,
                 frase,
@@ -69,7 +71,17 @@ public class AgregarComentario implements Task {
                 DoubleClick.on(TXT_BUSCAR),
                 Hit.the(Keys.ENTER).into(TXT_BUSCAR),
                 WaitUntil.the(SELECCIONAR_PRIMER_ELEMENTO, isClickable()),
-                Click.on(SELECCIONAR_PRIMER_ELEMENTO)
+                Click.on(SELECCIONAR_PRIMER_ELEMENTO),
+                WaitUntil.the(BOTON_AGREGAR_COMENTARIO, isClickable()),
+                Click.on(BOTON_AGREGAR_COMENTARIO),
+                WaitUntil.the(SELECCIONAR_ESTRELLA.of(estrellas), isVisible()),
+                Click.on(SELECCIONAR_ESTRELLA.of(estrellas)),
+                Type.theValue(frase).into(TXT_FRASE),
+                Type.theValue(opinion).into(TXT_OPINION),
+                Click.on(RADIO_RECOMENDACION.of(recomendar)),
+                Type.theValue(nombre).into(TXT_NOMBRE),
+                Type.theValue(correo).into(TXT_CORREO),
+                Click.on(BOTON_ENVIAR_COMENTARIO)
         );
     }
 }
